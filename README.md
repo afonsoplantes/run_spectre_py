@@ -1,4 +1,4 @@
-# Instructions to run
+# Instructions to run Spectre using Python
 
 The purpose of this repository is to provide a quick introduction to Spectre simulations via the terminal. I used Python scrits that modify a netlitst, it is possible to make a completely new netlist too, which regenerates with each new simulation.
 
