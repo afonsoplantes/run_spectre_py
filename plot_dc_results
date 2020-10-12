@@ -6,7 +6,8 @@ import re
 from textwrap import dedent
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-from numpy import sqrt
+
+import numpy as np
 from docopt import docopt
 from inform import Error, Inform, comment, display, done, fatal, os_error
 from psf_utils import PSF
@@ -22,7 +23,7 @@ show_power = False        # display in V²/Hz if True and V/√Hz otherwise
 # Netlist to plot
 #####################
 
-out_file = "input" + ".scs"
+out_file = "input.scs"
 spectre_exe = "spectre"  # Spectre executable
 netlist_file = to_path(out_file)  # Spectre netlist file
 log_file = netlist_file.with_suffix(".log")  # Spectre logfile
@@ -30,29 +31,34 @@ results_dir = netlist_file.with_suffix(".raw")  # simulation results directory
 
 ## Analysis type
 psf_file_dc = results_dir / "dc1.dc"  # Input PSF file for dc simulation
-psf_file_ac = results_dir / "ac1.dc"  # Input PSF file for ac simulation
+psf_file_ac = results_dir / "ac1.ac"  # Input PSF file for ac simulation
 
+print(psf_file_dc)
 
 #####################
 # Plot DC Results
 #####################
-
-# plot results {{{1
 try:
     # Get results from psf file
     results = PSF(psf_file_dc, sep=":")
     sweep = results.get_sweep()
+    
     
     # Get units Vin
     x_name = sweep.name
     x_units = sweep.units
     # Get sweep data from x axis
     v_in = sweep.abscissa
+    print(v_in)
+    print("vin len:", len(v_in))
 
     # Get raw data
     v_out_raw = results.get_signal("vo")
+    
     # Get usable data
     v_out = v_out_raw.ordinate
+    print("vout len:", len(v_out))
+    v_in = np.linspace(0,1.2,len(v_out))
 
     # Figure size
     plt.figure(figsize=(4.5, 3))
@@ -61,9 +67,10 @@ try:
     plt.xlabel("Vin, V", fontsize=11)
     plt.ylabel('Vout, V', fontsize=11)
 
-    plt.plot(v_in, v_out, color='red',)
+    plt.plot(v_in, v_out, color='red')
     plt.show()
     plt.savefig('dc_sweep.svg', format='svg', pad_inches=0, bbox_inches='tight')
+    
 except Error as e:
     e.terminate()
 except KeyboardInterrupt as e:

@@ -1,0 +1,46 @@
+HEADER
+"PSFversion" "1.00"
+"Log Generator" "drlLog rev. 1.0"
+"Log Time Stamp" "Mon Oct 12 14:24:01 2020"
+"simulator" "spectre"
+"version" "15.1.0.284.isr1"
+"date" "2:24:01 PM, Mon Oct 12, 2020"
+"design" "// NMOS Common-Source Stage"
+"signalNameType" "spectre"
+"simMode" "Spectre"
+"measdgt" 0
+"ingold" 2
+"sst2usecolon" 0
+TYPE
+"analysisInst" STRUCT(
+"analysisType" STRING *
+"dataFile" STRING *
+"format" STRING *
+"parent" STRING *
+"sweepVariable" ARRAY ( * ) STRING *
+"description" STRING *
+)
+VALUE
+"dc1-dc" "analysisInst" (
+"dc"
+"dc1.dc"
+"PSF"
+""
+("vi")
+"DC Analysis `dc1': vi = (0 -> 1.2)"
+) PROP(
+"data_type" "scalar"
+)
+
+"ac1-ac" "analysisInst" (
+"ac"
+"ac1.ac"
+"PSF"
+""
+("freq")
+"AC Analysis `ac1': freq = (100 kHz -> 10 GHz)"
+) PROP(
+"data_type" "swept_scalar"
+)
+
+END
