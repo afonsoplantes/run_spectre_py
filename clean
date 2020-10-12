@@ -1,0 +1,11 @@
+#!/bin/sh
+
+
+rm -rf .*.Linux-64.dep *.ahdlcmi
+rm *.ic *fc
+rm *~
+rm -rf *.ahdlSimDB
+rm -rf *.raw
+rm -rf *.log
+rm *.scs
+

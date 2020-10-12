@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# Ignore VS code configs for now
+.vscode
+
+# Ignore ~
+*~
+
 # Distribution / packaging
 .Python
 build/
@@ -127,3 +133,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+ignore

@@ -1,0 +1,153 @@
+// Generated for: spectre
+// Generated on: Oct  4 12:52:43 2020
+// Design library name: Pulsfilter
+// Design cell name: fneo_nova_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters vthres=1.27 Cap_neo=250f F_gain=0 F_hig=22 F_low=10 gain=0.075
+
+include "./source_models/models.scs"
+
+// Library name: tapeout_maio19
+// Cell name: BIAS_fneo_final
+// View name: schematic
+subckt BIAS_fneo_final Gnd Vbias Vdd bn1 bn2 bp2_n bp2_p
+    M4 (bp2 Vbias bn1 Gnd) nch_mac l=12.0u w=2u multi=1 nf=4 sigma=1 \
+        sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M2 (net028 Vbias bn2 Gnd) nch_mac l=2.005u w=2u multi=1 nf=4 sigma=1 \
+        sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M1 (bn1 bn1 Gnd Gnd) nch_mac l=6u w=2u multi=1 nf=4 sigma=1 sd=540.0n \
+        ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 sa=480.0n \
+        sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M0 (bn2 bn2 Gnd Gnd) nch_mac l=6u w=4u multi=1 nf=8 sigma=1 sd=540.0n \
+        ad=1.08e-12 as=1.29e-12 pd=8.32u ps=10.16u nrd=0.0675 nrs=0.0675 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M8 (net043 net043 Vdd Vdd) pch_mac l=1.55u w=2u multi=1 nf=4 sigma=1 \
+        sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M7 (net029 net029 Vdd Vdd) pch_mac l=6u w=2u multi=1 nf=4 sigma=1 \
+        sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M6 (bp2 bp2 net043 net043) pch_mac l=6u w=2u multi=1 nf=4 sigma=1 \
+        sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M5 (net028 net028 net029 net029) pch_mac l=6u w=2u multi=1 nf=4 \
+        sigma=1 sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 \
+        nrs=0.135 sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M11 (bp2_n net17 net17 net17) pch l=10u w=1u m=1 nf=1 sd=540.0n \
+        ad=4.8e-13 as=4.8e-13 pd=2.96u ps=2.96u nrd=0.27 nrs=0.27 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0
+    M10 (bp2 net17 net17 net17) pch l=10u w=1u m=1 nf=1 sd=540.0n \
+        ad=4.8e-13 as=4.8e-13 pd=2.96u ps=2.96u nrd=0.27 nrs=0.27 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0
+    M9 (bp2_p net16 net16 net16) pch l=10u w=1u m=1 nf=1 sd=540.0n \
+        ad=4.8e-13 as=4.8e-13 pd=2.96u ps=2.96u nrd=0.27 nrs=0.27 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0
+    M3 (bp2 net16 net16 net16) pch l=10u w=1u m=1 nf=1 sd=540.0n \
+        ad=4.8e-13 as=4.8e-13 pd=2.96u ps=2.96u nrd=0.27 nrs=0.27 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0
+ends BIAS_fneo_final
+// End of subcircuit definition.
+
+// Library name: tapeout_maio19
+// Cell name: fneo_final
+// View name: schematic
+subckt fneo_final Gnd Out_fNEO Vdd Vin1 Vin2 bn1 bn2 bp1 bp2_n bp2_p
+    M2 (b1 b1 Vdd Vdd) pch_mac l=6u w=2u multi=1 nf=4 sigma=1 sd=540.0n \
+        ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 sa=480.0n \
+        sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M5 (Out_fNEO bn2 net048 Gnd) nch_mac l=2u w=2u multi=1 nf=4 sigma=1 \
+        sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M4 (net048 bn1 Gnd Gnd) nch_mac l=2u w=2u multi=1 nf=4 sigma=1 \
+        sd=540.0n ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 \
+        sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M17 (net040 bp1 Vdd Vdd) pch_mac l=2u w=4u multi=1 nf=8 sigma=1 \
+        sd=540.0n ad=1.08e-12 as=1.29e-12 pd=8.32u ps=10.16u nrd=0.0675 \
+        nrs=0.0675 sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M16 (Out_fNEO b1 net040 net040) pch_mac l=2u w=4u multi=1 nf=8 sigma=1 \
+        sd=540.0n ad=1.08e-12 as=1.29e-12 pd=8.32u ps=10.16u nrd=0.0675 \
+        nrs=0.0675 sa=480.0n sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M1 (Gnd bp2_n b1 b1) pch_mac l=6u w=2u multi=1 nf=4 sigma=1 sd=540.0n \
+        ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 sa=480.0n \
+        sb=480.0n sca=0 scb=0 scc=0 mismatchflag=1
+    M0 (Gnd bp2_p b1 b1) pch_mac l=6u w=2u multi=1 nf=4 sigma=1 sd=540.0n \
+        ad=5.4e-13 as=7.5e-13 pd=4.16u ps=6u nrd=0.135 nrs=0.135 sa=480.0n \
+        sb=480.0n sca=0 scb=0 scc=0 mismatchflag=0
+    C1 (bp2_p Vin1 Gnd) moscap_rf wr=2.5u lr=500n br=10 gr=2
+    C0 (bp2_n Vin2 Gnd) moscap_rf wr=2.5u lr=500n br=10 gr=2
+ends fneo_final
+// End of subcircuit definition.
+
+// Library name: tapeout_maio19
+// Cell name: detector_top
+// View name: schematic
+subckt detector_top DET_BP1 DET_Out_FNEO DET_Out_R DET_Vin1 DET_Vin2 Gnd \
+        Vbias Vdd
+    I50 (Gnd Vbias Vdd net013 net022 net021 net014) BIAS_fneo_final
+    I0 (Gnd DET_Out_FNEO Vdd DET_Vin1 DET_Vin2 net013 net022 DET_BP1 \
+        net021 net014) fneo_final
+ends detector_top
+// End of subcircuit definition.
+
+// Library name: analogLib
+// Cell name: ideal_balun
+// View name: schematic
+subckt ideal_balun d c p n
+    K0 (d 0 p c) transformer n1=2
+    K1 (d 0 c n) transformer n1=2
+ends ideal_balun
+// End of subcircuit definition.
+
+// Library name: TSMC18_digital
+// Cell name: not
+// View name: schematic
+subckt not A Y
+    _0 (Y A 0 0) nch l=180.0n w=500n m=1 nf=1 sd=540.0n ad=2.4e-13 \
+        as=2.4e-13 pd=1.96u ps=1.96u nrd=0.54 nrs=0.54 sa=480.0n sb=480.0n \
+        sca=0 scb=0 scc=0
+    _1 (Y A vdd! vdd!) pch l=180.0n w=1.5u m=1 nf=1 sd=540.0n ad=7.2e-13 \
+        as=7.2e-13 pd=3.96u ps=3.96u nrd=0.18 nrs=0.18 sa=480.0n sb=480.0n \
+        sca=0 scb=0 scc=0
+ends not
+// End of subcircuit definition.
+
+// Library name: Pulsfilter
+// Cell name: fneo_nova_tb
+// View name: schematic
+I2 (Bias1 ed_neo2 net018 BPF2 BPF1 0 VCM net010) detector_top
+I0 (Bias1 ed_neo1 net014 Vi1 Vi2 0 VCM net011) detector_top
+I430 (Vi1 Vi2 BPF1 BPF2) BB_butterworth_bp_laplace fupper=F_hig \
+        flower=F_low gain=F_gain rin=50 rout=50
+I19 (BPFd 0 BPF1 BPF2) ideal_balun
+I10 (ECG VCM Vi1 Vi2) ideal_balun
+V0 (net015 0) vsource \
+        file="amostras_mit" \
+        type=pwl
+E0 (ECG 0 net015 0) vcvs gain=gain
+V7 (net03 0) vsource dc=vthres type=dc
+V5 (net010 vdd!) vsource type=dc
+V4 (vdd! net011) vsource type=dc
+V3 (Bias1 0) vsource dc=1.3938 type=dc
+V2 (VCM 0) vsource dc=900.0m type=dc
+V1 (vdd! 0) vsource dc=1.8 type=dc
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=1806 errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V4:p 
+saveOptions options save=allpub
+ahdl_include "/home/usr/plantes/projeto_2018/sancho/tapeout_maio19/BB_butterworth_bp_laplace/veriloga/veriloga.va"
+ahdl_include "/home/tools/cadence/installs/IC617/tools/dfII/samples/artist/ahdlLib/comparator/veriloga/veriloga.va"

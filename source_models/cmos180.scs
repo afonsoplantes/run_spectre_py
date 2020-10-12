@@ -1,0 +1,88 @@
+* 180nm CMOS models for Spectre, Bernhard Boser, February 2016
+* Modified Boris Murmann models distributed with gm/Id starter kit, dated, January 2010
+* version without flicker noise (see also cmos180_flicker.scs)
+simulator lang=spectre
+
+model nfet bsim3v3 {
+1: type=n
++version = 3.1            hdif    = 0.32e-6
++tnom    = 27             tox     = 4.1e-9
++xj      = 1e-7           nch     = 2.3549e17      vth0    = 0.3618397
++k1      = 0.5916053      k2      = 3.225139e-3    k3      = 1e-3
++k3b     = 2.3938862      w0      = 1e-7           nlx     = 1.776268e-7
++dvt0w   = 0              dvt1w   = 0              dvt2w   = 0
++dvt0    = 1.3127368      dvt1    = 0.3876801      dvt2    = 0.0238708
++u0      = 256.74093      ua      = -1.585658e-9   ub      = 2.528203e-18
++uc      = 5.182125e-11   vsat    = 1.003268e5     a0      = 1.981392
++ags     = 0.4347252      b0      = 4.989266e-7    b1      = 5e-6
++keta    = -9.888408e-3   a1      = 6.164533e-4    a2      = 0.9388917
++rdsw    = 0              prwg    = 0.5            prwb    = 0
++wr      = 1              wint    = 0              lint    = 1.617316e-8
++xl      = 0              xw      = -1e-8          dwg     = -5.383413e-9
++dwb     = 9.111767e-9    voff    = -0.0854824     nfactor = 2.2420572
++cit     = 0              cdsc    = 2.4e-4         cdscd   = 0
++cdscb   = 0              eta0    = 2.981159e-3    etab    = 9.289544e-6
++dsub    = 0.0159753      pclm    = 0.7245546      pdiblc1 = 0.1568183
++pdiblc2 = 2.543351e-3    pdiblcb = -0.1           drout   = 0.7445011
++pscbe1  = 8e10           pscbe2  = 1.876443e-9    pvag    = 7.200284e-3
++delta   = 0.01           rsh     = 0              mobmod  = 1
++prt     = 0              ute     = -1.5           kt1     = -0.11
++kt1l    = 0              kt2     = 0.022          ua1     = 4.31e-9
++ub1     = -7.61e-18      uc1     = -5.6e-11       at      = 3.3e4
++wl      = 0              wln     = 1              ww      = 0
++wwn     = 1              wwl     = 0              ll      = 0
++lln     = 1              lw      = 0              lwn     = 1
++lwl     = 0              capmod  = 2              xpart   = 1
++cgdo    = 4.91e-10       cgso    = 4.91e-10       cgbo    = 1e-12
++cj      = 9.652028e-4    pb      = 0.8            mj      = 0.3836899
++cjsw    = 2.326465e-10   pbsw    = 0.8            mjsw    = 0.1253131
++cjswg   = 3.3e-10        pbswg   = 0.8            mjswg   = 0.1253131
++cf      = 0              pvth0   = -7.714081e-4   prdsw   = 0
++pk2     = 9.619963e-4    wketa   = -1.060423e-4   lketa   = -5.373522e-3
++pu0     = 4.5760891      pua     = 1.469028e-14   pub     = 1.783193e-23
++pvsat   = 1.19774e3      peta0   = 9.968409e-5    pketa   = -2.51194e-3
++cjgate  = 0              nlev    = 3              
++noimod  = 1              kf      = 0
+}
+
+model pfet bsim3v3 {
+ 2: type=p
++version = 3.1            hdif    = 0.32e-6
++tnom    = 27             tox     = 4.1e-9
++xj      = 1e-7           nch     = 4.1589e17      vth0    = -0.374776
++k1      = 0.5861046      k2      = 0.0264302      k3      = 0
++k3b     = 9.1168119      w0      = 1e-6           nlx     = 1.332241e-7
++dvt0w   = 0              dvt1w   = 0              dvt2w   = 0
++dvt0    = 0.6148668      dvt1    = 0.2213746      dvt2    = 0.1
++u0      = 103.636208     ua      = 1.043424e-9    ub      = 1e-21
++uc      = -1e-10         vsat    = 1.29059e5      a0      = 1.5418178
++ags     = 0.3123693      b0      = 6.199145e-7    b1      = 1.634457e-6
++keta    = 0.0313547      a1      = 0.8            a2      = 0.3746405
++rdsw    = 293.751926     prwg    = 0.5            prwb    = 0.5
++wr      = 1              wint    = 0              lint    = 3.111886e-8
++xl      = 0              xw      = -1e-8          dwg     = -2.715764e-8
++dwb     = 4.525318e-9    voff    = -0.0831119     nfactor = 1.933495
++cit     = 0              cdsc    = 2.4e-4         cdscd   = 0
++cdscb   = 0              eta0    = 0.0859596      etab    = -0.0520269
++dsub    = 0.8778821      pclm    = 2.9202527      pdiblc1 = 1.333525e-4
++pdiblc2 = 0.0334217      pdiblcb = -9.294449e-4   drout   = 9.986813e-4
++pscbe1  = 3.206395e9     pscbe2  = 9.279348e-10   pvag    = 15
++delta   = 0.01           rsh     = 7.5            mobmod  = 1
++prt     = 0              ute     = -1.5           kt1     = -0.11
++kt1l    = 0              kt2     = 0.022          ua1     = 4.31e-9
++ub1     = -7.61e-18      uc1     = -5.6e-11       at      = 3.3e4
++wl      = 0              wln     = 1              ww      = 0
++wwn     = 1              wwl     = 0              ll      = 0
++lln     = 1              lw      = 0              lwn     = 1
++lwl     = 0              capmod  = 2              xpart   = 1
++cgdo    = 6.57e-10       cgso    = 6.57e-10       cgbo    = 1e-12
++cj      = 1.186426e-3    pb      = 0.8350261      mj      = 0.4022229
++cjsw    = 1.924495e-10   pbsw    = 0.8            mjsw    = 0.3353329
++cjswg   = 4.22e-10       pbswg   = 0.8            mjswg   = 0.3353329
++cf      = 0              pvth0   = 1.522756e-3    prdsw   = 0.7164396
++pk2     = 1.500815e-3    wketa   = 0.0277401      lketa   = -1.794554e-3
++pu0     = -0.9454674     pua     = -4.22507e-11   pub     = 1e-21
++pvsat   = -50            peta0   = 1.003159e-4    pketa   = -3.89914e-3
++cjgate  = 0              nlev    = 3
++noimod  = 1              kf      = 0
+}
