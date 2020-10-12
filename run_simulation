@@ -2,7 +2,7 @@
 
 
 # Imports {{{1
-import re
+##import re
 from numpy import sqrt
 from docopt import docopt
 from inform import Error, Inform, comment, display, done, fatal, os_error

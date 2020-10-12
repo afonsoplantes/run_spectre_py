@@ -4,7 +4,7 @@ simulator lang=spectre
 
 * device model; download from course website
 * include "./cmos180.scs" section tt
-include "./cmos180.scs"
+include "./source_models/cmos180.scs"
 * save transistor bias (gm, cgs, ...); very helpful for diagnosis
 save m1
 
@@ -25,7 +25,7 @@ cl (vo 0) capacitor c=2.26p
 
 options1 options gmin=0.1p reltol=0.1m vabstol=1u iabstol=100ps 
 options2 options temp=27 tnom=27 
-options3 options save=allpub rawfmt=psfbin rawfile="./cs.raw" 
+options3 options save=allpub rawfmt=psfbin rawfile="./input.raw" 
 
 dc1 dc param=vi start=0 stop=[PARAMETER] lin=101
 ac1 ac start=100k stop=10G log=101
