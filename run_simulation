@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-
-# Imports {{{1
 ##import re
 from numpy import sqrt
 from docopt import docopt
@@ -10,10 +8,9 @@ from psf_utils import PSF
 from quantiphy import Quantity
 from shlib import Run, render_command, set_prefs as shlib_set_prefs, to_path
 
-# Globals {{{1
-# plotting preferences {{{2
-use_sci_notation = False  # alternative is to use SI scale factors
-show_power = False  # display in V²/Hz if True and V/√Hz otherwise
+#####################
+# Change a parameter in an existing netlist
+#####################
 
 # open seed file and chage parameter
 fin = open("source_models/cs_amplifier.scs", "rt")
@@ -29,17 +26,23 @@ fout = open(out_file, "wt")
 fout.write(data)
 fout.close()
 
+#####################
 # Simulte netlist
-# paths {{{2
+#####################
+
 spectre_exe = "spectre"  # Spectre executable
 netlist_file = to_path(out_file)  # Spectre netlist file
 log_file = netlist_file.with_suffix(".log")  # Spectre logfile
 results_dir = netlist_file.with_suffix(".raw")  # simulation results directory
-psf_file = results_dir / "dc1-dc"  # Input PSF file
 
+## Analysis type
+psf_file_dc = results_dir / "dc1.dc"  # Input PSF file for dc simulation
+psf_file_ac = results_dir / "ac1.dc"  # Input PSF file for ac simulation
+
+## Simulation Command
 sim_cmd = (spectre_exe, "=log", log_file, "-format", "psfascii", netlist_file, "-64")
 
-# simulate {{{1
+## simulate 
 try:
     comment("\nRunning:")
     comment("   ", render_command(sim_cmd, {"=log": 1, "-format": 1}))
@@ -48,4 +51,5 @@ except Error as e:
     if e.stdout:
         comment(e.stdout)
     e.terminate(culprit=spectre_exe, codicil=f"See {log_file} for more information.")
+
 
