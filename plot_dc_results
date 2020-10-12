@@ -68,8 +68,9 @@ try:
     plt.ylabel('Vout, V', fontsize=11)
 
     plt.plot(v_in, v_out, color='red')
-    plt.show()
     plt.savefig('dc_sweep.svg', format='svg', pad_inches=0, bbox_inches='tight')
+    #plt.show()
+    
     
 except Error as e:
     e.terminate()
