@@ -1,0 +1,140 @@
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 15.1.0.284.isr1 64bit -- 12 Nov 2015
+Copyright (C) 1989-2015 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence, Virtuoso and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: plantes   Host: gmicro11   HostID: 7F0100   PID: 20449
+Memory  available: 69.2964 GB  physical: 76.0141 GB
+Linux   : CentOS release 6.8 (Final)
+CPU Type: Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz
+All processors running at 1600.0 MHz
+        Socket: Processors (Hyperthreaded Processor)
+        0:       0 ( 12 ),  2 ( 14 ),  4 ( 16 ),  6 ( 18 ),  8 ( 20 )
+                10 ( 22 )
+        1:       1 ( 13 ),  3 ( 15 ),  5 ( 17 ),  7 ( 19 ),  9 ( 21 )
+                11 ( 23 )
+        
+System load averages (1min, 5min, 15min) : 3.2 %, 1.9 %, 1.8 %
+Hyperthreading is enabled
+
+
+Simulating `input.scs' on gmicro11 at 1:30:44 PM, Thur Nov 19, 2020 (process id: 20449).
+Current working directory: /home/usr/plantes/work/spectre-py/run_spectre_py
+Environment variable:
+    SPECTRE_DEFAULTS=-E
+Command line:
+    /home/tools/cadence/installs/MMSIM151/tools/bin/spectre -64  \
+        input.scs +escchars +log ./psf/spectre.out -format psfxl -raw  \
+        ./psf +lqtimeout 900 -maxw 5 -maxn 5
+
+Loading /home/tools/cadence/installs/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /home/tools/cadence/installs/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_o_sh.so ...
+Loading /home/tools/cadence/installs/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /home/tools/cadence/installs/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /home/tools/cadence/installs/MMSIM151/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  /home/usr/plantes/work/spectre-py/run_spectre_py/input.scs
+Reading file:  /home/tools/cadence/installs/MMSIM151/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  /home/usr/plantes/work/spectre-py/run_spectre_py/source_models/cmos180.scs
+Time for NDB Parsing: CPU = 94.986 ms, elapsed = 1.60702 s.
+Time accumulated: CPU = 131.979 ms, elapsed = 1.60703 s.
+Peak resident memory used = 37.8 Mbytes.
+
+
+The CPU load for active processors is :
+        Spectre  0 (2.0 %)       1 (7.3 %)      15 (1.3 %)      
+        Other   
+Reading link:  /home/tools/cadence/installs/MMSIM151/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file:  /home/tools/cadence/installs/MMSIM151/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link:  /home/tools/cadence/installs/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file:  /home/tools/cadence/installs/MMSIM151/tools.lnx86/spectre/etc/ahdl/constants.vams
+Time for Elaboration: CPU = 21.997 ms, elapsed = 119.987 ms.
+Time accumulated: CPU = 153.976 ms, elapsed = 1.72721 s.
+Peak resident memory used = 44.1 Mbytes.
+
+Time for EDB Visiting: CPU = 1 ms, elapsed = 29.9439 ms.
+Time accumulated: CPU = 154.976 ms, elapsed = 1.75736 s.
+Peak resident memory used = 44.6 Mbytes.
+
+
+Global user options:
+               gmin = 1e-13
+             reltol = 0.0001
+            vabstol = 1e-06
+            iabstol = 1e-10
+               temp = 27
+               tnom = 27
+               save = allpub
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 3
+            bsim3v3 1     
+          capacitor 1     
+            isource 1     
+           resistor 1     
+            vsource 2     
+
+Analysis and control statement inventory:
+                 ac 1     
+                 dc 1     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 0     
+
+Time for parsing: CPU = 3.999 ms, elapsed = 128.695 ms.
+Time accumulated: CPU = 158.975 ms, elapsed = 1.88623 s.
+Peak resident memory used = 45.5 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+
+Warning from spectre.
+    WARNING (SPECTRE-16707): Only tran supports psfxl format, result of other analyses will be in psfbin format.
+
+
+**********************************
+DC Analysis `dc1': vi = (0 -> 1.2)
+**********************************
+
+Opening the PSF file ./psf/dc1.dc ...
+Important parameter values:
+    reltol = 100e-06
+    abstol(V) = 1 uV
+    abstol(I) = 100 pA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    gmindc = 100 fS
+......9......8......7......6......5......4......3......2......1......0
+Total time required for dc analysis `dc1': CPU = 27.997 ms, elapsed = 83.6542 ms.
+Time accumulated: CPU = 188.97 ms, elapsed = 1.97584 s.
+Peak resident memory used = 46.6 Mbytes.
+
+
+*********************************************
+AC Analysis `ac1': freq = (100 kHz -> 10 GHz)
+*********************************************
+DC simulation time: CPU = 0 s, elapsed = 101.805 us.
+
+Opening the PSF file ./psf/ac1.ac ...
+......9......8......7......6......5......4......3......2......1......0
+Accumulated DC solution time = 0 s.
+Intrinsic ac analysis time =              0 s.
+Total time required for ac analysis `ac1': CPU = 5.999 ms, elapsed = 29.8781 ms.
+Time accumulated: CPU = 194.969 ms, elapsed = 2.00612 s.
+Peak resident memory used = 46.8 Mbytes.
+
+
+Aggregate audit (1:30:46 PM, Thur Nov 19, 2020):
+Time used: CPU = 203 ms, elapsed = 2.05 s, util. = 9.89%.
+Time spent in licensing: elapsed = 134 ms, percentage of total = 6.52%.
+Peak memory used = 47.1 Mbytes.
+Simulation started at: 1:30:44 PM, Thur Nov 19, 2020, ended at: 1:30:46 PM, Thur Nov 19, 2020, with elapsed time (wall clock): 2.05 s.
+spectre completes with 0 errors, 1 warning, and 0 notices.
